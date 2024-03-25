@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/filmes")
+@RequestMapping("/")
 public class FilmesController {
 
     @Autowired
     private FilmeRepository repository;
 
-    @GetMapping("/")
+    @GetMapping("/filmes")
     public List<Filme> list() {
         return this.repository.findAll();
     }
 
-    @PostMapping("/")
+    @PostMapping("/filmes")
     public Filme create(@RequestBody Filme filme) {
         return this.repository.save(filme);
     }
