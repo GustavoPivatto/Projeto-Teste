@@ -62,6 +62,29 @@ function handleEdit(event) {
         .catch(error => console.error('Error fetching filme for editing:', error));
 }
 
+//Delete function
+function handleDelete(event) {
+    const filmeId = event.target.dataset.id; // Get the filme ID from the button's data-id attribute
+
+    // Confirm with the user before deleting the filme
+    const confirmDelete = confirm('Are you sure you want to delete this filme?');
+    if (confirmDelete) {
+        // Send a DELETE request to the backend API to delete the filme
+        fetch(`/api/filmes/${filmeId}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                // Refresh the list of filmes after successful deletion
+                fetchFilmes();
+            } else {
+                console.error('Failed to delete filme:', response.statusText);
+            }
+        })
+        .catch(error => console.error('Error deleting filme:', error));
+    }
+}
+
 // Function to handle form submission for creating a new Filme
 document.getElementById('createForm').addEventListener('submit', event => {
     event.preventDefault(); // Prevent default form submission
