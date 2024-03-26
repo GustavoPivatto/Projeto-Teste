@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+#filmeList {
+    margin-top: 20px;
+}
+
+.filmeItem {
+    margin-bottom: 10px;
+}
