@@ -15,7 +15,7 @@
         <input type="text" id="diretor" placeholder="Diretor" required>
         <input type="number" id="anoLancamento" placeholder="Ano de Lançamento" required>
         <input type="text" id="pais" placeholder="País" required>
-        <button type="submit">Create Filme</button>
+        <button type="submit">Criar Filme</button>
     </form>
 
     <!-- Table to display Filmes -->
@@ -27,7 +27,7 @@
                 <th>Diretor</th>
                 <th>Ano de Lançamento</th>
                 <th>País</th>
-                <th>Actions</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody id="filmeList"></tbody>
@@ -35,15 +35,15 @@
 
     <!-- Edit form (hidden by default) -->
     <div id="editFormContainer" style="display: none;">
-        <h2>Edit Filme</h2>
+        <h2>Editar Filme</h2>
         <form id="editForm">
             <input type="hidden" id="editId">
             <input type="text" id="editTitulo" placeholder="Título" required>
             <input type="text" id="editDiretor" placeholder="Diretor" required>
             <input type="number" id="editAnoLancamento" placeholder="Ano de Lançamento" required>
             <input type="text" id="editPais" placeholder="País" required>
-            <button type="submit">Save Changes</button>
-            <button type="button" id="cancelEdit">Cancel</button>
+            <button type="submit">Salvar Mudanças</button>
+            <button type="button" id="cancelEdit">Cancelar</button>
         </form>
     </div>
 
