@@ -20,7 +20,7 @@ function fetchFilmes() {
                 filmeItem.querySelector('.filmePais').textContent = filme.pais;
 
                 // Edit button functionality
-                filmeItem.querySelector('.editBtn').addEventListener('click', () => {
+                filmeItem.querySelector('.editBtn').addEventListener('click', function() {
                     // Populate edit form with filme details
                     const editForm = editFormTemplate.content.cloneNode(true);
                     editForm.querySelector('#editId').value = filme.filme_id;
@@ -30,11 +30,11 @@ function fetchFilmes() {
                     editForm.querySelector('#editPais').value = filme.pais;
 
                     // Replace filme item with edit form
-                    filmeItem.replaceWith(editForm);
+                    filmeItem.parentNode.replaceChild(editForm, filmeItem);
                 });
 
                 // Delete button functionality
-                filmeItem.querySelector('.deleteBtn').addEventListener('click', () => {
+                filmeItem.querySelector('.deleteBtn').addEventListener('click', function() {
                     if (confirm('Are you sure you want to delete this filme?')) {
                         fetch(`/api/filmes/${filme.filme_id}`, {
                             method: 'DELETE',
@@ -57,16 +57,13 @@ function fetchFilmes() {
 }
 
 // Function to handle form submission for creating a new filme
-document.getElementById('createForm').addEventListener('submit', event => {
+document.getElementById('createForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
-    const titulo = document.getElementById('titulo').value;
-    const id = document.getElementById('filme_id').value;
-    const diretor = document.getElementById('diretor').value;
-    const ano_lancamento = document.getElementById('ano_lancamento');
-    const pais = document.getElementById('pais').value;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
 
-    fetch('/api/filmes/', {
+    fetch('/api/filmes', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
