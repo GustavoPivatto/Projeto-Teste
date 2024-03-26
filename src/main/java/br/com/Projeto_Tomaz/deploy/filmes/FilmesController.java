@@ -20,28 +20,30 @@ import org.springframework.http.ResponseEntity;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/filmes")
 public class FilmesController {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {
         super(message);
+        }
     }
 
     @Autowired
     private FilmeRepository repository;
 
-    @GetMapping("/filmes")
+    @GetMapping("/")
     public List<Filme> list() {
         return this.repository.findAll();
     }
     
 
-    @PostMapping("/filmes")
+    @PostMapping("/")
     public Filme create(@RequestBody Filme filme) {
         return this.repository.save(filme);
     }
+
     @PutMapping("/{id}")
     public Filme updateFilme(@PathVariable("id") UUID id, @RequestBody Filme updatedFilme) {
         Filme existingFilme = repository.findByUuid(id);
@@ -62,6 +64,7 @@ public class FilmesController {
             throw new ResourceNotFoundException("Filme not found with id: " + id);
         }
     }
+    
     @GetMapping("/{id}")
     public Filme findFilmeById(@PathVariable("id") UUID id) {
         return repository.findByUuid(id);
@@ -79,5 +82,5 @@ public class FilmesController {
         }
     }
 }
-}
+
 
