@@ -1,6 +1,6 @@
 // Function to fetch and display Filmes
 function fetchFilmes() {
-    fetch('/api/filmes') // Assuming this is your endpoint for fetching Filmes
+    fetch('/api/filmes/') // Assuming this is your endpoint for fetching Filmes
         .then(response => response.json())
         .then(data => {
             const filmeList = document.getElementById('filmeList');
@@ -42,7 +42,7 @@ document.getElementById('createForm').addEventListener('submit', event => {
     const anoLancamento = document.getElementById('anoLancamento').value;
     const pais = document.getElementById('pais').value;
 
-    fetch('/api/filmes', {
+    fetch('/api/filmes/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
