@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-
+import br.com.Projeto_Tomaz.deploy.filmes.*;
 
 @RestController
 @RequestMapping("/api/filmes")
@@ -46,10 +46,9 @@ public class FilmesController {
 
     @PutMapping("/{id}")
     public Filme updateFilme(@PathVariable("id") UUID id, @RequestBody Filme updatedFilme) {
-        Filme existingFilme = repository.findByUuid(id);
+        Filme existingFilme = repository.findById(id).get();
         if (existingFilme != null) {
             // Update fields of existingFilme with values from updatedFilme
-            // Id,Titulo,Diretor,AnoLancamento,pais,FilmeId
             existingFilme.setTitulo(updatedFilme.getTitulo());
             existingFilme.setFilme_id(updatedFilme.getFilmeId());
             existingFilme.setDiretor(updatedFilme.getDiretor());
@@ -67,14 +66,14 @@ public class FilmesController {
     
     @GetMapping("/{id}")
     public Filme findFilmeById(@PathVariable("id") UUID id) {
-        return repository.findByUuid(id);
+        return repository.findById(id).get();
     }
     
     // Delete filme by UUID
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteFilmeById(@PathVariable("id") UUID id) {
-        Filme existingFilme = repository.findByUuid(id);
+        Filme existingFilme = repository.findById(id).get();
         if (existingFilme != null) {
             repository.delete(existingFilme);
         } else {
