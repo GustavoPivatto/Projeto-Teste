@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring Boot CRUD App</title>
+    <title>Filmes CRUD</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <h1>Spring Boot CRUD App</h1>
-    
-    <!-- Form for creating a new filme -->
+    <h1>Filmes CRUD</h1>
+
+    <!-- Form for creating a new Filme -->
     <form id="createForm">
-        <input type="text" id="title" placeholder="Title" required>
-        <input type="text" id="description" placeholder="Description" required>
+        <input type="text" id="titulo" placeholder="Título" required>
+        <input type="text" id="diretor" placeholder="Diretor" required>
+        <input type="number" id="anoLancamento" placeholder="Ano de Lançamento" required>
+        <input type="text" id="pais" placeholder="País" required>
         <button type="submit">Create Filme</button>
     </form>
 
-    <!-- Container to display list of filmes -->
-    <div id="filmeList"></div>
+    <!-- Table to display Filmes -->
+    <table id="filmeTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Diretor</th>
+                <th>Ano de Lançamento</th>
+                <th>País</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="filmeList"></tbody>
+    </table>
+
+    <!-- Edit form (hidden by default) -->
+    <div id="editFormContainer" style="display: none;">
+        <h2>Edit Filme</h2>
+        <form id="editForm">
+            <input type="hidden" id="editId">
+            <input type="text" id="editTitulo" placeholder="Título" required>
+            <input type="text" id="editDiretor" placeholder="Diretor" required>
+            <input type="number" id="editAnoLancamento" placeholder="Ano de Lançamento" required>
+            <input type="text" id="editPais" placeholder="País" required>
+            <button type="submit">Save Changes</button>
+            <button type="button" id="cancelEdit">Cancel</button>
+        </form>
+    </div>
 
     <!-- Script for CRUD operations -->
     <script src="script.js"></script> <!-- Link to your JavaScript file -->
