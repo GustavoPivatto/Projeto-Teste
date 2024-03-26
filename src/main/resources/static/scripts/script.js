@@ -1,5 +1,6 @@
 // Function to fetch and display Filmes
 function fetchFilmes() {
+    console.log('Fetching Filmes...'); // Log a message to indicate the function is running
     fetch('/api/filmes/') // Assuming this is your endpoint for fetching Filmes
         .then(response => response.json())
         .then(data => {
