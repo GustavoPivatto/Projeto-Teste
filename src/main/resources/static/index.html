@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot CRUD App</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Spring Boot CRUD App</h1>
+    
+    <!-- Form for creating a new filme -->
+    <form id="createForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="text" id="description" placeholder="Description" required>
+        <button type="submit">Create Filme</button>
+    </form>
+
+    <!-- Container to display list of filmes -->
+    <div id="filmeList"></div>
+
+    <!-- Script for CRUD operations -->
+    <script src="scripts/script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
