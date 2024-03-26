@@ -34,6 +34,34 @@ function fetchFilmes() {
         .catch(error => console.error('Error fetching Filmes:', error));
 }
 
+//Edit function
+function handleEdit(event) {
+    const filmeId = event.target.dataset.id; // Get the filme ID from the button's data-id attribute
+    const editFormContainer = document.getElementById('editFormContainer');
+    const editForm = document.getElementById('editForm');
+    const editTitulo = document.getElementById('editTitulo');
+    const editDiretor = document.getElementById('editDiretor');
+    const editAnoLancamento = document.getElementById('editAnoLancamento');
+    const editPais = document.getElementById('editPais');
+
+    // Show the edit form container
+    editFormContainer.style.display = 'block';
+
+    // Fetch the specific filme data for editing
+    fetch(`/api/filmes/${filmeId}`) // Assuming this is your endpoint for fetching a specific filme
+        .then(response => response.json())
+        .then(filme => {
+            // Populate the edit form fields with existing data
+            editForm.reset(); // Clear previous form data
+            editForm.elements['editId'].value = filme.id;
+            editTitulo.value = filme.titulo;
+            editDiretor.value = filme.diretor;
+            editAnoLancamento.value = filme.ano_lancamento;
+            editPais.value = filme.pais;
+        })
+        .catch(error => console.error('Error fetching filme for editing:', error));
+}
+
 // Function to handle form submission for creating a new Filme
 document.getElementById('createForm').addEventListener('submit', event => {
     event.preventDefault(); // Prevent default form submission
