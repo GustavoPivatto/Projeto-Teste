@@ -11,41 +11,13 @@
     
     <!-- Form for creating a new filme -->
     <form id="createForm">
-        <input type="text" id="titulo" placeholder="Título" required>
-        <input type="text" id="diretor" placeholder="Diretor" required>
-        <input type="text" id="ano_lancamento" placeholder="Ano de Lançamento" required>
-        <input type="text" id="pais" placeholder="país" required>
-        <input type="text" id="filme_id" placeholder="ID" required>
-        <button type="submit">Criar Filme</button>
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="text" id="description" placeholder="Description" required>
+        <button type="submit">Create Filme</button>
     </form>
 
     <!-- Container to display list of filmes -->
     <div id="filmeList"></div>
-
-    <!-- Templates for filme items and edit form -->
-    <template id="filmeItemTemplate">
-        <div class="filmeItem">
-            <p>ID: <span class="filmeId"></span></p>
-            <p>Título: <span class="filmeTitulo"></span></p>
-            <p>Diretor: <span class="filmeDiretor"></span></p>
-            <p>Ano de Lançamento: <span class="filmeAnoLancamento"></span></p>
-            <p>País: <span class="filmePais"></span></p>
-            <button class="editBtn">Editar</button>
-            <button class="deleteBtn">Deletar</button>
-        </div>
-    </template>
-
-    <!-- Edit form template -->
-    <template id="editFormTemplate">
-        <form id="editForm">
-            <input type="hidden" id="editId">
-            <input type="text" id="editTitulo" placeholder="Title" required>
-            <input type="text" id="editDiretor" placeholder="Director" required>
-            <input type="number" id="editAnoLancamento" placeholder="Release Year" required>
-            <input type="text" id="editPais" placeholder="Country" required>
-            <button type="submit">Save Changes</button>
-        </form>
-    </template>
 
     <!-- Script for CRUD operations -->
     <script src="script.js"></script> <!-- Link to your JavaScript file -->

@@ -10,6 +10,7 @@ function fetchFilmes() {
                 const filmeItem = document.createElement('div');
                 filmeItem.classList.add('filmeItem');
                 filmeItem.innerHTML = `
+                
                     <p>Id: ${filme.filme_id}</p>
                     <p>Titulo: ${filme.titulo}</p>
                     <p>Diretor: ${filme.diretor}</p>
