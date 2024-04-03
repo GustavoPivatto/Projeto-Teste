@@ -21,6 +21,6 @@ jobs:
             - name: Login Docker Hub
               run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
             - name: Build docker image
-              run: docker build -t eopivas/deploy_render 
+              run: docker build -t eopivas/deploy_render .
             - name: Push image docker
-              run: docker push eopivas/deploy_render 
+              run: docker push eopivas/deploy_render:pivas
