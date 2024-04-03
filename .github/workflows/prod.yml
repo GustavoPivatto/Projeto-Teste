@@ -23,4 +23,12 @@ jobs:
             - name: Build docker image
               run: docker build -t eopivas/deploy_render .
             - name: Push image docker
-              run: docker push eopivas/deploy_render:pivas
+              run: docker push eopivas/deploy_render
+    deploy:
+      needs: build
+      runs-on: self-hosted
+      steps:
+        - name: Pull image from docker hub
+          run: docker pull eopivas/deploy_render
+        - name: Run docker container
+          run: docker run -d  -p 8080:8080 --name eopivas/deploy_render
