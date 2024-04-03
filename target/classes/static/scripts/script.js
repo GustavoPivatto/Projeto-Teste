@@ -65,7 +65,7 @@ function handleEdit(event) {
         };
 
         // Send a PUT request to update the filme data
-        fetch(/api/filmes/${updatedFilme.id}, {
+        fetch(/api/filmes/${updatedFilme.id} {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
