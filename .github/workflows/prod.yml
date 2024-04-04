@@ -30,5 +30,7 @@ jobs:
       steps:
         - name: Pull image from docker hub
           run: docker pull eopivas/deploy_render
+        - name: Remove docker container
+          run: docker rm -f pivas
         - name: Run docker container
           run: docker run -d -p 25000:25000 -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD='${{secrets.DATABASE_PASSWORD}}' -e DATABASE_URL=${{secrets.DATABASE_URL}} --name pivas eopivas/deploy_render
