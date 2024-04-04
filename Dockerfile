@@ -14,7 +14,7 @@
 # COPY --from=build /target/deploy_render-1.0.0.jar app.jar
 
 # ENTRYPOINT [ "java", "-jar", "app.jar" ]
-
+#É O PIVAS
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY target/deploy_render-1.0.0.jar deploy_render-1.0.0.jar
